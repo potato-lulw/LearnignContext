@@ -2,6 +2,7 @@ import React, {useContext} from 'react'
 import { ThemeContext } from '../context/theme-context'
 
 export default function Navbar() {
+
   const {isLight, light, dark} = useContext(ThemeContext);
   const theme = isLight ? light : dark;
   return (

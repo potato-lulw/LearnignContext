@@ -15,10 +15,21 @@ export default function ThemeContextProvider({children}) {
       dark: {syntax: '#ddd', ui: '#333', bg: '#555'}
     });
 
+    // const toggleTheme = () => {
+    //   setTheme({ isLight: !theme.isLight });
+    // };
+
+    const toggleTheme = () => {
+      setTheme(prevTheme => ({
+        ...prevTheme,
+        isLight: !prevTheme.isLight
+      }));
+    };
+
     // const state = { isLight, light, dark, };
   return (
     
-    <ThemeContext.Provider value = {theme}>
+    <ThemeContext.Provider value = {{...theme , toggleTheme: toggleTheme}}>
         {children}
     </ThemeContext.Provider>
   )
